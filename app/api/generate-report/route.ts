@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import OpenAI from "openai";
 import FirecrawlApp from '@mendable/firecrawl-js';
 
-const openai = new OpenAI();
-const firecrawlApp = new FirecrawlApp({ apiKey: process.env.FIRECRAWL_API_KEY });
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY }); // OpenAI API Key added
+const firecrawlApp = new FirecrawlApp({ apiKey: process.env.FIRECRAWL_API_KEY }); // Firecrawl API Key already present
 
 export async function POST(request: Request) {
   const { url, instructions } = await request.json();
